@@ -1,0 +1,48 @@
+# Prompt for Coding LLM: Revolutionize the TWIST Project for Vimar SpA
+
+## Objective
+Completely redesign and rebuild the Digital Twin Fork project, now called **TWIST**, for Vimar SpA. The new application must assist operators during the startup phase of industrial processes, providing all current functionalities with a modern, operator-friendly interface and a coding-related font style.
+
+## Key Requirements
+
+### 1. Preserve Essential Industrial Integrations
+- **Camera Connection:** Retain all functions and modules that handle camera acquisition, device setup, and live streaming. These are critical for real-time defect detection and process monitoring.
+- **Industrial Server Connection:** Keep all code that connects to the industrial server or retrieves process data from external sources. This ensures seamless integration with existing factory systems.
+- **Any other hardware or protocol-specific code** required for industrial connectivity must be preserved and integrated into the new architecture.
+
+### 2. UI Framework
+- **Do NOT use Streamlit.**
+- Select a different, modern UI framework suitable for Python (e.g., [UI](https://github.com/joewu/ui), PyQt, Tkinter, or a web-based solution like Flask + React/Vue).
+- The UI must:
+  - Be visually appealing and intuitive for factory operators.
+  - Use a coding-related font throughout the interface (e.g., Fira Code, Source Code Pro, or similar).
+  - Reflect the new project identity: **TWIST**.
+  - Incorporate Vimar SpA branding and color palette.
+
+### 3. Functional Parity
+- All current features must be preserved and improved where possible:
+  - **Quality Monitoring:** Real-time computer vision defect detection, visualization, and session management.
+  - **Data Retrieval:** Access and display historical and real-time process data, with coupling between process parameters and detected defects.
+  - **Training Mode:** Camera acquisition, model training, and session/result management.
+  - **Startup Mode:** Predictive modeling, feature engineering, Molding Window analysis, and process parameter suggestions.
+- The new UI should make these modes easily accessible and clearly separated for the user.
+
+### 4. Project Structure
+- Organize the codebase for maintainability and scalability.
+- Use clear module separation for UI, industrial integrations, data/model management, and utilities.
+- All configuration should remain centralized and easily editable.
+
+### 5. Documentation & Style
+- Document all modules and functions clearly.
+- Use a coding-related font for all UI text and code displays.
+- Provide a README describing the new architecture, setup instructions, and usage.
+
+## Additional Notes
+- The new application must be robust, fast, and easy to use for non-technical operators.
+- All legacy code for hardware and server integration must be cited and reused where possible.
+- The project name is now **TWIST** and must be reflected in all UI and documentation.
+- Developed for Vimar SpA to assist operators during the startup phase.
+
+---
+
+**Use this prompt to guide a coding LLM in generating the new TWIST application, ensuring all requirements above are met.**

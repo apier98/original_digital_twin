@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+.env
+venv/
+env/
+*.egg-info/
+dist/
+build/
+*.log
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# VS Code
+.vscode/
+
+# Data and results
+data/
+*.csv
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Model weights
+*.pt
+*.h5
+
+# Streamlit cache
+.streamlit/
+
+# Misc
+*.bak
+*.swp
