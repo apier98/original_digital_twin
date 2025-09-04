@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import json
 import os
+from datetime import datetime
 
 from ultralytics import settings
 
@@ -32,7 +33,8 @@ def update_acquisition_dict(res, acquisition_dictionary):
                 if str(detection['track_id']) not in list(acquisition_dictionary.keys()): # new comp
                     acquisition_dictionary[str(detection['track_id'])] = {
                         'componente':1, 'linea_giunzione':0, 'risucchio':0, 'macchia':0, 'sfiammatura':0, 'bava':0,
-                        'confidence': {'linea_giunzione':[], 'risucchio':[], 'macchia':[], 'sfiammatura':[], 'bava':[]}
+                        'confidence': {'linea_giunzione':[], 'risucchio':[], 'macchia':[], 'sfiammatura':[], 'bava':[]},
+                        'timestamp': datetime.now().isoformat()  # Add timestamp for chronological ordering
                     }
                 elif str(detection['track_id']) in list(acquisition_dictionary.keys()):
                     acquisition_dictionary[str(detection['track_id'])]['componente'] += 1  # one more comp identification

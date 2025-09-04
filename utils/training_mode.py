@@ -177,16 +177,14 @@ def training_mode2():
         retrieval_info_container.info('Run one cycle to get times!')
 
     if isinstance(st.session_state.pp_df, pd.DataFrame):
-        # reverse the dataframe
-        params_dataframe = st.session_state.pp_df.iloc[::-1].reset_index(drop=True)
-        #params_dataframe = st.session_state.pp_df.copy().reset_index()
-        # change confidence data type
-        for obj_id in st.session_state.acquisition_dictionary:
-            for acq_field in st.st.session_state.acquisition_dictionary[obj_id]:
-                if "confidence" in acq_field:
-                    st.st.session_state.acquisition_dictionary[obj_id][acq_field] = str(st.st.session_state.acquisition_dictionary[obj_id][acq_field])
-        acquisition_dataframe_t = pd.DataFrame(st.session_state.acquisition_dictionary).T.reset_index(drop=True)
-        coupled_dataframe = pd.concat([acquisition_dataframe_t, params_dataframe], axis=1)
+        # Sort PP dataframe chronologically by timestamp (assuming 'timestamp' column exists)
+        params_dataframe = st.session_state.pp_df.sort_values(by='timestamp').reset_index(drop=True)
+        # Convert acquisition dictionary to dataframe and sort by timestamp
+        acquisition_dataframe = pd.DataFrame(st.session_state.acquisition_dictionary).T.reset_index(drop=True)
+        acquisition_dataframe['timestamp'] = pd.to_datetime(acquisition_dataframe['timestamp'])
+        acquisition_dataframe = acquisition_dataframe.sort_values(by='timestamp').reset_index(drop=True)
+        # Couple the dataframes
+        coupled_dataframe = pd.concat([acquisition_dataframe, params_dataframe], axis=1)
         coupled_dataframe = coupled_dataframe.dropna()
         container_2.info('Coupled results: ')
         container_2.dataframe(coupled_dataframe)
